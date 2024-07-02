@@ -45,9 +45,9 @@ plt.show()
 predicted_ratings_only = preds_df.copy()
 
 for row in ratings_matrix.index:
-    for col in ratings_matrix.columns:
-        if not np.isnan(ratings_matrix.loc[row, col]):
-            predicted_ratings_only.loc[row, col] = np.nan
+    for column in ratings_matrix.columns:
+        if not np.isnan(ratings_matrix.loc[row, column]):
+            predicted_ratings_only.loc[row, column] = np.nan
 
 
 def recommend_movies(user_id, num_recommendations=10):
