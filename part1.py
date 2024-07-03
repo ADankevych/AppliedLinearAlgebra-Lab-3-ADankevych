@@ -13,7 +13,10 @@ def my_svd(matrix):
     Σ[:min(matrix.shape), :min(matrix.shape)] = np.diag(singular_values)
 
     for i in range(len(singular_values)):
-        U[:, i] = np.dot(matrix, V[:, i]) / singular_values[i]
+        if singular_values[i] != 0:
+            U[:, i] = np.dot(matrix, V[:, i]) / singular_values[i]
+        else:
+            U[:, i] = np.zeros(matrix.shape[0])
 
     print("U: \n", U)
     print("Σ: \n", Σ)
